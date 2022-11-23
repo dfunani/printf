@@ -17,9 +17,10 @@ int _putchar(char c)
  * printStr - prints string
  * @str: to print
  *
+ * Return: int length
  */
 
-void printStr(char *str)
+int printStr(char *str)
 {
 	int i;
 
@@ -29,6 +30,7 @@ void printStr(char *str)
 		_putchar(str[i]);
 		i++;
 	}
+	return (i);
 }
 
 /**
@@ -42,11 +44,11 @@ void printStr(char *str)
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int i;
-	char *str;
+	int i, result;
 
 	va_start(ap, format);
 	i = 0;
+	result = 0;
 	while (format[i])
 	{
 		if (format[i] == '[' && format[i + 1] == '%')
@@ -58,16 +60,20 @@ int _printf(const char *format, ...)
 					switch (format[i])
 					{
 					case 's':
-						str = va_arg(ap, char *);
-						printStr(str);
+						result +=
+							printStr(
+								va_arg(ap,
+								       char *));
 						break;
 
 					case 'c':
 						_putchar(va_arg(ap, int));
+						result++;
 						break;
 
 					case '%':
 						_putchar('%');
+						result++;
 						break;
 					}
 				}
@@ -78,9 +84,10 @@ int _printf(const char *format, ...)
 		else
 		{
 			_putchar(format[i]);
+			result++;
 		}
 		i++;
 	}
 	va_end(ap);
-	return (0);
+	return (result);
 }
