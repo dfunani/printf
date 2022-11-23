@@ -65,6 +65,10 @@ int _printf(const char *format, ...)
 					case 'c':
 						_putchar(va_arg(ap, int));
 						break;
+
+					case '%':
+						_putchar('%');
+						break;
 					}
 				}
 				i++;
