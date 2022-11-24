@@ -7,6 +7,20 @@
 #include <unistd.h>
 #include <stdarg.h>
 
+/**
+* struct specifiers - defines a structure for symbols and functions
+*
+* @spec: The operator
+* @func: The function associated
+*
+*/
+
+typedef struct specifiers
+{
+	char *spec;
+	int (*func)(va_list);
+} specifiers;
+
 int _printf(const char *format, ...);
 
 #endif

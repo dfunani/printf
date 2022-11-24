@@ -14,17 +14,49 @@ int _putchar(char c)
 }
 
 /**
+ * printChar - prints a char
+ * @list: list to print
+ *
+ * Return: int len of chars
+ *
+ */
+
+int printChar(va_list list)
+{
+	_putchar(va_arg(list, int));
+	return (1);
+}
+
+/**
+ * printPercent - print %
+ * @list: list to print
+ *
+ * Return: int len
+ *
+ */
+
+int printPercent(__attribute__((unused))va_list list)
+{
+	_putchar('%');
+	return (1);
+}
+
+/**
  * printStr - prints string
- * @str: to print
+ * @list: to print
  *
  * Return: int length
  */
 
-int printStr(char *str)
+int printStr(va_list list)
 {
 	int i;
+	char *str;
 
 	i = 0;
+	str = va_arg(list, char *);
+	if (str == NULL)
+		str = "(nil)";
 	while (str[i] != '\0')
 	{
 		_putchar(str[i]);
@@ -32,6 +64,7 @@ int printStr(char *str)
 	}
 	return (i);
 }
+
 
 /**
  * _printf - an implementation of printf
@@ -44,51 +77,36 @@ int printStr(char *str)
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int i, result;
+	int i, j, result;
+	specifiers array[] = {
+		{"s", printStr},
+		{"c", printChar},
+		{"%", printPercent},
+		{NULL, NULL}
+	};
 
-	if (format == NULL || !*format)
-	{
-		return (0);
-	}
+	if (format == NULL)
+		return (-1);
 	va_start(ap, format);
-	i = 0;
-	result = 0;
-	while (format[i])
+	i = j = result = 0;
+	while (format[i] != '\0')
 	{
 		if (format[i] == '[' && format[i + 1] == '%')
 		{
 			while (format[i] != ']')
 			{
-				if (format[i - 1] == '%')
-				{
-					switch (format[i])
-					{
-					case 's':
-						result +=
-							printStr(
-								va_arg(ap,
-								       char *));
-						break;
-
-					case 'c':
-						_putchar(va_arg(ap, int));
-						result++;
-						break;
-
-					case '%':
-						_putchar('%');
-						result++;
-						break;
-					}
-				}
-				i++;
+			if (format[i - 1] == '%')
+			{
+				for (j = 0; array[j].spec != NULL; j++)
+					if (array[j].spec[i] == format[i])
+						result += array[j].func(ap);
 			}
-
+			i++;
+			}
 		}
 		else
 		{
-			_putchar(format[i]);
-			result++;
+			_putchar(format[i]), result++;
 		}
 		i++;
 	}
