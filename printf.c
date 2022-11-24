@@ -46,6 +46,10 @@ int _printf(const char *format, ...)
 	va_list ap;
 	int i, result;
 
+	if (format == NULL)
+	{
+		return (0);
+	}
 	va_start(ap, format);
 	i = 0;
 	result = 0;
