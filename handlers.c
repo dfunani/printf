@@ -17,7 +17,7 @@ int printInteger(va_list list)
 	if (j < 0)
 	{
 		res += _putchar('-');
-		sum = j * -1;
+		i = j * -1;
 	}
 	else
 		i = j;
