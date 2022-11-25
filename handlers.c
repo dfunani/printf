@@ -10,15 +10,18 @@
 
 int printInteger(va_list list)
 {
-	int num, res, rev;
+	int i, res, rev;
+	unsigned int num;
 
 	res = 0, rev = 1;
-	num = va_arg(list, int);
-	if (num < 0)
+	i = va_arg(list, int);
+	if (i < 0)
 	{
 		res += _putchar('-');
-		num *= -1;
+		num = i * -1;
 	}
+	else
+		num = i;
 	while (num / rev > 9)
 	{
 		rev *= 10;
