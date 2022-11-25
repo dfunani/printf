@@ -10,7 +10,7 @@
 
 int printInteger(va_list list)
 {
-	int num, res, trav, rev;
+	int num, res, rev;
 
 	res = 0, rev = 0;
 	num = va_arg(list, int);
@@ -19,15 +19,14 @@ int printInteger(va_list list)
 		res += _putchar('-');
 		num *= -1;
 	}
-	while (num != 0)
+	while (num / rev > 9)
 	{
-		trav = num % 10;
-		rev = (rev * 10) + trav;
-		num /= 10;
+		rev *= 10;
 	}
 	while (rev != 0)
 	{
-		res += _putchar(48 + (rev % 10));
+		res += _putchar(48 + (num / rev));
+		num %= rev;
 		rev /= 10;
 	}
 	return (res);
