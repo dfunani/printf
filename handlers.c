@@ -12,7 +12,7 @@ int printInteger(va_list list)
 {
 	int rev, mod, i, res;
 
-	rev = 0;
+	rev = 0, res = 0;
 	i = va_arg(list, int);
 	if (i < 0)
 	{
