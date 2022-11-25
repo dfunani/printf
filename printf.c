@@ -12,7 +12,7 @@
 
 int manager(const char *str, va_list list, specifiers funcs[])
 {
-	int i, j, res;
+	int i, j, res, trav;
 
 	res = 0;
 	for (i = 0; str[i] != '\0'; i++)
@@ -23,7 +23,10 @@ int manager(const char *str, va_list list, specifiers funcs[])
 			{
 				if (funcs[j].spec[0] == str[i + 1])
 				{
-					res += funcs[j].func(list);
+					trav = funcs[j].func(list);
+					if (trav == -1)
+						return (-1);
+					res += trav
 					break;
 				}
 			}
