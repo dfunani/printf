@@ -10,23 +10,23 @@
 
 int printInteger(va_list list)
 {
-	unsigned int pos;
 	int rev, mod, i, res;
 
 	rev = 0, res = 0;
 	i = va_arg(list, int);
+
+	if (!i)
+		return (-1);
 	if (i < 0)
 	{
 		res += _putchar('-');
-		pos = i * -1;
+		i *= -1;
 	}
-	else
-		pos = i;
-	while (pos != 0)
+	while (i != 0)
 	{
-		mod = pos % 10;
+		mod = i % 10;
 		rev = (rev * 10) + mod;
-		pos /= 10;
+		i /= 10;
 	}
 	while (rev != 0)
 	{
