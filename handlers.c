@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * printDecimal - print dec
+ * printInteger - print dec
  * @list: va list
  *
  * Return: -1 or len
@@ -10,6 +10,7 @@
 
 int printInteger(va_list list)
 {
+	unsigned int pos;
 	int rev, mod, i, res;
 
 	rev = 0, res = 0;
@@ -17,8 +18,10 @@ int printInteger(va_list list)
 	if (i < 0)
 	{
 		res += _putchar('-');
-		i *= -1;
+		pos = i * -1;
 	}
+	else
+		pos = i;
 	while (i != 0)
 	{
 		mod = i % 10;
