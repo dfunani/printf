@@ -65,6 +65,33 @@ int printStr(va_list list)
 	return (i);
 }
 
+int manager(const char *str, va_list list, specifiers funcs[])
+{
+	int i, j, res;
+
+	res = 0;
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if (str[i] == '%')
+		{
+			for (j = 0; funcs[j].spec != NULL; j++)
+			{
+				if (funcs[j].spec[0] == str[i + 1])
+				{
+					res += funcs[j].func(list);
+					break;
+				}
+			}
+			i++;
+		}
+		else
+		{
+			_putchar(str[i]);
+			res++;
+		}
+	}
+	return (res);
+}
 
 /**
  * _printf - an implementation of printf
@@ -77,7 +104,7 @@ int printStr(va_list list)
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int i, j, result;
+	int result;
 	specifiers array[] = {
 		{"s", printStr},
 		{"c", printChar},
@@ -88,28 +115,7 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 	va_start(ap, format);
-	i = j = result = 0;
-	while (format[i] != '\0')
-	{
-		if (format[i] == '[' && format[i + 1] == '%')
-		{
-			while (format[i] != ']')
-			{
-			if (format[i - 1] == '%')
-			{
-				for (j = 0; array[j].spec != NULL; j++)
-					if (array[j].spec[i] == format[i])
-						result += array[j].func(ap);
-			}
-			i++;
-			}
-		}
-		else
-		{
-			_putchar(format[i]), result++;
-		}
-		i++;
-	}
+	result = manager(format, ap, array);
 	va_end(ap);
 	return (result);
 }
