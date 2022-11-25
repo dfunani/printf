@@ -26,7 +26,7 @@ int manager(const char *str, va_list list, specifiers funcs[])
 					trav = funcs[j].func(list);
 					if (trav == -1)
 						return (-1);
-					res += trav
+					res += trav;
 					break;
 				}
 			}
