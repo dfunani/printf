@@ -1,6 +1,39 @@
 #include "main.h"
 
 /**
+ * printDecimal - print dec
+ * @list: va list
+ *
+ * Return: -1 or len
+ *
+ */
+
+int printInteger(va_list list)
+{
+	int rev, mod, i, res;
+
+	rev = 0;
+	i = va_arg(list, int);
+	if (i < 0)
+	{
+		res =+ _putchar('-');
+		i *= -1;
+	}
+	while (i != 0)
+	{
+		mod = i % 10;
+		rev = (rev * 10) + mod;
+		i /= 10;
+	}
+	while (rev != 0)
+	{
+		res += _putchar((rev % 10) + 48);
+		rev /= 10;
+	}
+	return (res);
+}
+
+/**
  * printChar - prints a char
  * @list: list to print
  *
