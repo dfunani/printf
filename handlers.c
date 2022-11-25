@@ -41,7 +41,7 @@ int printStr(va_list list)
 	i = 0;
 	str = va_arg(list, char *);
 	if (str == NULL)
-		return (-1);
+		str = "(null)";
 	while (str[i] != '\0')
 	{
 		_putchar(str[i]);
