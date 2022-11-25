@@ -8,34 +8,36 @@
  *
  */
 
-int printInteger(va_list list)
+int printInteger(va_list args)
 {
-	int rev, i, res, j, trav;
+	int n;
+	int div;
+	int len;
+	unsigned int num;
 
-	rev = 1, res = 0, trav = 0;
-	j = va_arg(list, int);
-	if (j < 0)
+	n  = va_arg(args, int);
+	div = 1;
+	len = 0;
+
+	if (n < 0)
 	{
-		trav = _putchar('-');
-		if (trav == -1)
-			return (-1);
-		res += trav;
-		i = j * -1;
+		len += _putchar('-');
+		num = n * -1;
 	}
 	else
-		i = j;
-	while (i / rev > 9)
-		rev *= 10;
-	while (rev != 0)
+		num = n;
+
+	for (; num / div > 9; )
+		div *= 10;
+
+	for (; div != 0; )
 	{
-		trav = _putchar(48 + i / rev);
-		if (trav == -1)
-			return (-1);
-		res += trav;
-		i %= rev;
-		rev /= 10;
+		len += _putchar('0' + num / div);
+		num %= div;
+		div /= 10;
 	}
-	return (res);
+
+	return (len);
 }
 
 /**

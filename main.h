@@ -27,6 +27,6 @@ int printChar(va_list list);
 int printPercent(va_list list);
 int _putchar(char c);
 int manager(const char *str, va_list list, specifiers funcs[]);
-int printInteger(va_list list);
+int printInteger(va_list args);
 
 #endif
