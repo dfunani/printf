@@ -30,6 +30,17 @@ int manager(const char *str, va_list list, specifiers funcs[])
 					break;
 				}
 			}
+			if (funcs[j].spec == NULL && str[i + 1] != ' ')
+			{
+				if (str[i + 1] != '\0')
+				{
+					_putchar(str[i]);
+					_putchar(str[i + 1]);
+					res += 2;
+				}
+				else
+					return (-1);
+			}
 			i++;
 		}
 		else
