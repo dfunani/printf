@@ -10,36 +10,25 @@
 
 int printInteger(va_list list)
 {
-	int rev, i, res;
+	int rev, i, res, j;
 
 	rev = 1, res = 0;
-	i = va_arg(list, int);
-
-	if (i < 0)
+	j = va_arg(list, int);
+	if (j < 0)
 	{
 		res += _putchar('-');
-		i *= -1;
+		sum = j * -1;
 	}
-	for (; i / rev > 9; )
+	else
+		i = j;
+	while (i / rev > 9)
 		rev *= 10;
-
-	for (; rev != 0; )
+	while (rev != 0)
 	{
-		res += _putchar('0' + i / rev);
+		res += _putchar(48 + i / rev);
 		i %= rev;
 		rev /= 10;
 	}
-	/*while (i != 0)
-	{
-		mod = i % 10;
-		rev = (rev * 10) + mod;
-		i /= 10;
-	}
-	while (rev != 0)
-	{
-		res += _putchar((rev % 10) + 48);
-		rev /= 10;
-		}*/
 	return (res);
 }
 
