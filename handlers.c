@@ -16,7 +16,7 @@ int printInteger(va_list list)
 	i = va_arg(list, int);
 	if (i < 0)
 	{
-		res =+ _putchar('-');
+		res += _putchar('-');
 		i *= -1;
 	}
 	while (i != 0)
