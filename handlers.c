@@ -22,11 +22,11 @@ int printInteger(va_list list)
 	}
 	else
 		pos = i;
-	while (i != 0)
+	while (pos != 0)
 	{
-		mod = i % 10;
+		mod = pos % 10;
 		rev = (rev * 10) + mod;
-		i /= 10;
+		pos /= 10;
 	}
 	while (rev != 0)
 	{
