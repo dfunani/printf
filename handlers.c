@@ -16,6 +16,8 @@ int printBinary(va_list list)
 	int j, n;
 
 	n = va_arg(list, int);
+	if (n == 0)
+		return (_putchar('0'));
 	if (n < 0)
 		return (-1);
 	while (n > 0)
