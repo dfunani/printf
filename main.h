@@ -33,5 +33,10 @@ int printUnsigned(va_list);
 int printOctal(va_list);
 int printHex(va_list);
 int printHeX(va_list);
+char *_memcpy(char *dest, char *src, unsigned int n);
+unsigned int _len(unsigned int num, int base);
+char *_rev(char *s);
+int hex_check(int num, char x);
+void write_base(char *str);
 
 #endif

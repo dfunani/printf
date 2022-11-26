@@ -70,10 +70,10 @@ int printHex(va_list list)
 	num = va_arg(list, unsigned int);
 
 	if (num == 0)
-		return (_write_char('0'));
+		return (_putchar('0'));
 	if (num < 1)
 		return (-1);
-	len = base_len(num, 16);
+	len = _len(num, 16);
 	hex_rep = malloc(sizeof(char) * len + 1);
 	if (hex_rep == NULL)
 		return (-1);
@@ -90,7 +90,7 @@ int printHex(va_list list)
 		num = num / 16;
 	}
 	hex_rep[len] = '\0';
-	rev_hex = rev_string(hex_rep);
+	rev_hex = _rev(hex_rep);
 	if (rev_hex == NULL)
 		return (-1);
 	write_base(rev_hex);
@@ -116,10 +116,10 @@ int printHeX(va_list list)
 	num = va_arg(list, unsigned int);
 
 	if (num == 0)
-		return (_write_char('0'));
+		return (_putchar('0'));
 	if (num < 1)
 		return (-1);
-	len = base_len(num, 16);
+	len = _len(num, 16);
 	hex_rep = malloc(sizeof(char) * len + 1);
 	if (hex_rep == NULL)
 		return (-1);
@@ -136,7 +136,7 @@ int printHeX(va_list list)
 		num = num / 16;
 	}
 	hex_rep[len] = '\0';
-	rev_hex = rev_string(hex_rep);
+	rev_hex = _rev(hex_rep);
 	if (rev_hex == NULL)
 		return (-1);
 	write_base(rev_hex);
