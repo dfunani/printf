@@ -32,5 +32,6 @@ int printBinary(va_list list);
 int printUnsigned(va_list);
 int printOctal(va_list);
 int printHex(va_list);
+int printHeX(va_list);
 
 #endif
