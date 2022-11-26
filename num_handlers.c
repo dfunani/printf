@@ -51,6 +51,6 @@ int printOctal(va_list list)
 		i++;
 	}
 	for (j = i - 1; j >= 0; j--)
-		res += _putchar(octalNum[j]);
+		res += _putchar(octalNum[j] + 48);
 	return (res);
 }
