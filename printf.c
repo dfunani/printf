@@ -71,10 +71,6 @@ int _printf(const char *format, ...)
 		{"d", printInteger},
 		{"i", printInteger},
 		{"b", printBinary},
-		{"u", printUnsigned},
-		{"o", printOctal},
-		{"x", printHex},
-		{"X", printHex},
 		{NULL, NULL}
 	};
 
