@@ -1,0 +1,13 @@
+#include "main.h"
+
+/**
+ * printUnsigned - func printing int pos only
+ * @list: list to print
+ *
+ * Return: len
+ *
+ */
+
+int printUnsigned(va_list list)
+{
+}

@@ -29,5 +29,8 @@ int _putchar(char c);
 int manager(const char *str, va_list list, specifiers funcs[]);
 int printInteger(va_list args);
 int printBinary(va_list list);
+int printUnsigned(va_list);
+int printOctal(va_list);
+int printHex(va_list);
 
 #endif
