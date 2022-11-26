@@ -12,7 +12,7 @@
 
 int manager(const char *str, va_list list, specifiers funcs[])
 {
-	int i, j, res, trav;
+	int i, j, res, trav, check;
 
 	res = 0;
 	for (i = 0; str[i] != '\0'; i++)
@@ -29,6 +29,8 @@ int manager(const char *str, va_list list, specifiers funcs[])
 					res += trav;
 					break;
 				}
+				if (str[i + 1] == 'S')
+					check = 1;
 			}
 			if (funcs[j].spec == NULL && str[i + 1] != ' ')
 			{
@@ -45,8 +47,17 @@ int manager(const char *str, va_list list, specifiers funcs[])
 		}
 		else
 		{
-			_putchar(str[i]);
-			res++;
+			if (check == 1 && (str[i] < 32 || str[i] >= 127))
+			{
+				res += _putchar('\\');
+				res += _putchar('x');
+				res++;
+			}
+			else
+			{
+				_putchar(str[i]);
+				res++;
+			}
 		}
 	}
 	return (res);
