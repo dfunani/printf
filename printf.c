@@ -70,6 +70,7 @@ int _printf(const char *format, ...)
 		{"%", printPercent},
 		{"d", printInteger},
 		{"i", printInteger},
+		{"b", printBinary},
 		{NULL, NULL}
 	};
 

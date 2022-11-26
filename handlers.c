@@ -1,6 +1,35 @@
 #include "main.h"
 
 /**
+ * printBinary - print binary
+ * @list: list to print
+ *
+ * Return: char len
+ *
+ */
+
+int printBinary(va_list list)
+{
+	int binaryNum[32];
+	int i = 0;
+	int res = 0;
+	int j, n;
+
+	n = va_arg(list, int);
+	if (n < 0)
+		return (-1);
+	while (n > 0)
+	{
+		binaryNum[i] = n % 2;
+		n = n / 2;
+		i++;
+	}
+	for (j = i - 1; j >= 0; j--)
+		res += _putchar(binaryNum[j] + 48);
+	return (res);
+}
+
+/**
  * printInteger - print dec
  * @list: va list
  *
