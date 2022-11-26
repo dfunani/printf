@@ -73,6 +73,8 @@ int _printf(const char *format, ...)
 		{"b", printBinary},
 		{"u", printUnsigned},
 		{"o", printOctal},
+		{"x", printHex},
+		{"X", printHeX},
 		{NULL, NULL}
 	};
 
