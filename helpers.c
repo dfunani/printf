@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * rev_string - reverses a string in place
+ * _rev - reverses a string in place
  *
  * @s: string to reverse
  * Return: A pointer to a character
@@ -32,7 +32,7 @@ char *_rev(char *s)
 
 
 /**
- * base_len - Calculates the length for an octal number
+ * _len - Calculates the length for an octal number
  * @num: The number for which the length is being calculated
  * @base: Base to be calculated by
  * Return: An integer representing the length of a number

@@ -55,7 +55,7 @@ int printOctal(va_list list)
 	return (res);
 }
 /**
- * print_hex - Prints a representation of a decimal number on base16 lowercase
+ * printHex - Prints a representation of a decimal number on base16 lowercase
  * @list: List of the arguments passed to the function
  * Return: Number of characters printed
  */
@@ -101,7 +101,7 @@ int printHex(va_list list)
 
 
 /**
- * print_heX - Prints a representation of a decimal number on base16 Uppercase
+ * printHeX - Prints a representation of a decimal number on base16 Uppercase
  * @list: List of the arguments passed to the function
  * Return: Number of characters printed
  */
